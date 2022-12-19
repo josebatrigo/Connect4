@@ -1,0 +1,91 @@
+@startuml
+class Tablero {
++ {static} char O
++ {static} char X
++ {static} char L
+- {static} int W
+- {static} int H
+- int contador
+- char turno
+- int ancho
+- int alto
+- char[][] m
++ <<Create>> Tablero()
++ <<Create>> Tablero(char[][])
++ int getAncho()
++ int getAlto()
++ int getContador()
++ char[][] getMatriz()
++ char getTurno()
++ void iniciaTurno()
++ void cambiaTurno()
++ boolean estaColumnaLibre(int)
++ void inserta(char,int)
++ boolean estaLleno()
++ boolean gana(char)
+- boolean ganaHorizontal(char)
+- boolean hay4Horizontales(int,int,char)
+- boolean ganaVertical(char)
+- boolean hay4Verticales(int,int,char)
+- boolean ganaDiagonalArriba(char)
+- boolean hay4DiagonalesArriba(int,int,char)
+- boolean ganaDiagonalAbajo(char)
+- boolean hay4DiagonalesAbajo(int,int,char)
++ boolean estaFinalizado()
+}
+class EntradaFX {
++ {static} int getColumna(Event)
+- {static} int getColumna(KeyCode)
+- {static} int getColumna(double,double)
+}
+class SalidaFX {
++ {static} double W
++ {static} double AX
++ {static} double AY
++ {static} double WIDTH
++ {static} double HEIGHT
++ {static} int CANVAS_WIDTH
++ {static} int CANVAS_HEIGHT
+- {static} double V
+- {static} double AT
+- {static} int BORDER
+- {static} void limpiaPantalla(GraphicsContext)
++ {static} void pintaInicio(GraphicsContext)
++ {static} void pinta(GraphicsContext,char[][],char)
++ {static} void pintaGana(GraphicsContext,char[][],char)
++ {static} void pintaEmpate(GraphicsContext,char[][])
+- {static} void pintaEncabezado(GraphicsContext,Color)
+- {static} void pintaTablero(GraphicsContext)
+- {static} void pintaPieInicio(GraphicsContext)
+- {static} void pintaMatriz(GraphicsContext,char[][])
+- {static} char[][] invertir(char[][])
+- {static} void pintaPieTurno(GraphicsContext,char)
+- {static} void pintaPieGana(GraphicsContext,char)
+- {static} void pintaTurno(GraphicsContext,char)
+- {static} void pintaPieEmpate(GraphicsContext)
+}
+class JuegoFX {
+- {static} boolean jugando
+- {static} Tablero tablero
+- {static} GraphicsContext gc
++ {static} void main(String[])
++ void start(Stage)
+- void setUp(Stage)
+- {static} void portada()
+- {static} void manejaEvento(Event)
+- {static} void inicio()
+- {static} void juega(int)
+- {static} void fin()
+}
+class Main {
++ {static} void main(String[])
+}
+
+
+Main ..> JuegoFX
+
+JuegoFX --> Tablero
+JuegoFX ..> EntradaFX
+JuegoFX ..> SalidaFX
+Application <|-- JuegoFX
+@enduml

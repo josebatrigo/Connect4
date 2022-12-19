@@ -1,0 +1,63 @@
+@startuml
+class Tablero {
++ {static} char O
++ {static} char X
++ {static} char L
+- {static} int W
+- {static} int H
+- int contador
+- char turno
+- int ancho
+- int alto
+- char[][] m
++ <<Create>> Tablero()
++ <<Create>> Tablero(char[][])
++ int getAncho()
++ int getAlto()
++ int getContador()
++ char[][] getMatriz()
++ char getTurno()
++ void iniciaTurno()
++ void cambiaTurno()
++ boolean estaColumnaLibre(int)
++ void inserta(char,int)
++ boolean estaLleno()
++ boolean gana(char)
+- boolean ganaHorizontal(char)
+- boolean hay4Horizontales(int,int,char)
+- boolean ganaVertical(char)
+- boolean hay4Verticales(int,int,char)
+- boolean ganaDiagonalArriba(char)
+- boolean hay4DiagonalesArriba(int,int,char)
+- boolean ganaDiagonalAbajo(char)
+- boolean hay4DiagonalesAbajo(int,int,char)
++ boolean estaFinalizado()
+}
+class Juego {
+- {static} Tablero tablero
+- {static} Entrada entrada
++ {static} void main(String[])
++ {static} void run()
+- {static} void inicio()
+- {static} void juega()
+- {static} void fin()
+}
+class Entrada {
+- Scanner teclado
++ <<Create>> Entrada()
++ int getColumna(char,int)
++ {static} void esperaInicio()
+}
+class Salida {
++ {static} void limpiaPantalla()
++ {static} void pintaInicio()
++ {static} void pinta(char[][])
++ {static} void pintaGana(char[][],char)
++ {static} void pintaEmpate(char[][])
+}
+
+Juego --> Tablero
+Juego --> Entrada
+Juego ..> Salida
+
+@enduml
