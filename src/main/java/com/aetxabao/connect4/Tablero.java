@@ -154,13 +154,22 @@ public class Tablero {
     }
 
     private boolean ganaVertical(char jugador) {
-        //TODO: ganaVertical
-        boolean b = false;
-        return b;
+        for (int i = 0; i < m.length; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (!hay4Verticales(i, j, jugador)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     private boolean hay4Verticales(int columna, int fila, char jugador){
-        //TODO: hay4Verticales
+        for (int i = 0; i < 4; i++) {
+            if (m[fila][columna + i] != jugador) {
+                return false;
+            }
+        }
         return true;
     }
 
