@@ -3,7 +3,7 @@ package com.aetxabao.connect4;
 import static com.aetxabao.connect4.Tablero.*;
 
 /**
- * @author Nombre Apellido
+ * @author Joseba Trigo
  */
 public class Salida {
 

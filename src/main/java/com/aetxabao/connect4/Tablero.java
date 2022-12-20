@@ -2,7 +2,7 @@ package com.aetxabao.connect4;
 import java.util.Random;
 
 /**
- * @author Nombre Apellido
+ * @author Joseba Trigo
  */
 public class Tablero {
 
@@ -114,14 +114,14 @@ public class Tablero {
         for (int i = 0; i < m[columna - 1].length; i++) {
             if (m[columna - 1][i] == L) {
                 m[columna - 1][i] = ficha;
+                contador++;
                 break;
             }
         }
     }
 
     public boolean estaLleno() {
-        //TODO: estaLleno
-        return contador == alto*ancho;
+        return contador == alto * ancho;
     }
 
     public boolean gana(char jugador) {
@@ -134,13 +134,22 @@ public class Tablero {
     }
 
     private boolean ganaHorizontal(char jugador) {
-        //TODO: ganaHorizontal
-        boolean b = false;
-        return b;
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (!hay4Horizontales(j, i, jugador)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     private boolean hay4Horizontales(int columna, int fila, char jugador){
-        //TODO: hay4Horizontales
+        for (int i = 0; i < 4; i++) {
+            if (m[fila + i][columna] != jugador) {
+                return false;
+            }
+        }
         return true;
     }
 
