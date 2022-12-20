@@ -1,4 +1,5 @@
 package com.aetxabao.connect4;
+import java.util.Random;
 
 /**
  * @author Nombre Apellido
@@ -15,6 +16,7 @@ public class Tablero {
     private final int ancho;
     private final int alto;
     private final char[][] m;
+    Random random = new Random();
 
     public Tablero() {
         contador = 0;
@@ -30,12 +32,28 @@ public class Tablero {
     }
 
     public Tablero(char[][] m) {
-        //TODO: Tablero(m)
-        contador = 0;
-        turno = X;
-        ancho = 0;
-        alto = 0;
-        this.m = null;
+        int contadorX = 0;
+        int contadorO = 0;
+        for (int i = 0; i < m.length; i++) {
+            for (int j = 0; j < m[i].length; j++) {
+                if (m[i][j] == O) {
+                    contadorO++;
+                }
+                else if (m[i][j] == X) {
+                    contadorX++;
+                }
+            }
+        }
+        contador = contadorX + contadorO;
+        if (contadorX > contadorO) {
+            turno = O;
+        }
+        else if (contadorO > contadorX) {
+            turno = X;
+        }
+        ancho = W;
+        alto = H;
+        this.m = m;
     }
 
     public int getAncho() {
@@ -60,6 +78,7 @@ public class Tablero {
 
     public void iniciaTurno() {
         //TODO: iniciaTurno
+
     }
 
     public void cambiaTurno() {
