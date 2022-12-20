@@ -78,6 +78,12 @@ public class Tablero {
 
     public void iniciaTurno() {
         //TODO: iniciaTurno
+        if (random.nextBoolean()) {
+            turno = X;
+        }
+        else {
+            turno = O;
+        }
 
     }
 

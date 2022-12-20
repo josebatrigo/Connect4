@@ -33,6 +33,7 @@ public class Salida {
     }
 
     public static void pinta(char[][] matriz) {
+
         limpiaPantalla();//no borrar esta primera línea
         int h = matriz[0].length;
         int w = matriz.length;
