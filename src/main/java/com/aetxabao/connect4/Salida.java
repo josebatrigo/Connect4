@@ -33,7 +33,6 @@ public class Salida {
     }
 
     public static void pinta(char[][] matriz) {
-        //TODO: pinta
         limpiaPantalla();//no borrar esta primera línea
         int h = matriz[0].length;
         int w = matriz.length;
@@ -42,7 +41,14 @@ public class Salida {
         System.out.println("###################################");
         System.out.println("                                   ");
         char[] letras = {'A','B','C','D','E','F'};
-
+        int k = 0;
+        for (int i = h - 1; i >= 0; i--) {
+            System.out.print(letras[k] + "  | ");
+           for (int j = 0; j < w; j++) {
+                System.out.print(matriz[j][i] + " | ");
+           }
+           System.out.print(" " + letras[k] + "\n");
+        }
         System.out.println("   -----------------------------   ");
         System.out.println("   | 1 | 2 | 3 | 4 | 5 | 6 | 7 |   ");
         System.out.println("                                   ");
@@ -69,6 +75,7 @@ public class Salida {
                 {' ', ' ', ' ', ' ', ' ', ' '}
         };
         pinta(m0);
+        System.out.println("*".repeat(10));
         char[][] m1 = {
                 {X, O, X, O, L, L},
                 {X, O, L, L, L, L},
