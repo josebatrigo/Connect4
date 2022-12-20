@@ -88,16 +88,35 @@ public class Tablero {
     }
 
     public void cambiaTurno() {
-        //TODO: cambiaTurno
+        if (turno == X) {
+            turno = O;
+        }
+        else {
+            turno = X;
+        }
     }
 
     public boolean estaColumnaLibre(int columna) {
-        //TODO: estaColumnaLibre
+        if (columna < 1 || columna > 7) {
+            return false;
+        }
+        for (int i = 0; i < m.length; i++) {
+            for (int j = 0; j < m[i].length; j++) {
+                if (m[i][j] == L) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
     public void inserta(char ficha, int columna) {
-        //TODO: insertar
+        for (int i = 0; i < m[columna - 1].length; i++) {
+            if (m[columna - 1][i] == L) {
+                m[columna - 1][i] = ficha;
+                break;
+            }
+        }
     }
 
     public boolean estaLleno() {
