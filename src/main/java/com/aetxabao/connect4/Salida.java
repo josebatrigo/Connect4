@@ -42,13 +42,13 @@ public class Salida {
         System.out.println("###################################");
         System.out.println("                                   ");
         char[] letras = {'A','B','C','D','E','F'};
-        int k = 0;
+        int k = letras.length - 1;
         for (int i = h - 1; i >= 0; i--) {
             System.out.print(letras[k] + "  | ");
            for (int j = 0; j < w; j++) {
                 System.out.print(matriz[j][i] + " | ");
            }
-           System.out.print(" " + letras[k] + "\n");
+           System.out.print(" " + letras[k--] + "\n");
         }
         System.out.println("   -----------------------------   ");
         System.out.println("   | 1 | 2 | 3 | 4 | 5 | 6 | 7 |   ");
