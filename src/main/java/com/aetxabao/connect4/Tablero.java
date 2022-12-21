@@ -3,6 +3,7 @@ import java.util.Random;
 
 /**
  * @author Joseba Trigo
+ *
  */
 public class Tablero {
 
