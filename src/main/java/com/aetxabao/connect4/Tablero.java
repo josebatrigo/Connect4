@@ -154,19 +154,19 @@ public class Tablero {
     }
 
     private boolean ganaVertical(char jugador) {
-        for (int i = 0; i < m.length; i++) {
+        for (int i = 0; i < m.length - 1; i++) {
             for (int j = 0; j < 3; j++) {
-                if (!hay4Verticales(i, j, jugador)) {
-                    return false;
+                if (hay4Verticales(i, j, jugador)) {
+                    return true;
                 }
             }
         }
-        return true;
+        return false;
     }
 
     private boolean hay4Verticales(int columna, int fila, char jugador){
         for (int i = 0; i < 4; i++) {
-            if (m[fila][columna + i] != jugador) {
+            if (m[columna][fila + i] != jugador) {
                 return false;
             }
         }
@@ -174,13 +174,23 @@ public class Tablero {
     }
 
     private boolean ganaDiagonalArriba(char jugador) {
-        //TODO: ganaDiagonalArriba
-        boolean b = false;
-        return b;
+        int k;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (hay4DiagonalesArriba(i, j, jugador)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     private boolean hay4DiagonalesArriba(int columna, int fila, char jugador){
-        //TODO: hay4DiagonalesArriba
+        for (int i = 0; i < 4; i++) {
+            if (m[columna++][fila++] != jugador) {
+                return false;
+            }
+        }
         return true;
     }
 
