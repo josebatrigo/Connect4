@@ -136,17 +136,17 @@ public class Tablero {
     private boolean ganaHorizontal(char jugador) {
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 4; j++) {
-                if (!hay4Horizontales(j, i, jugador)) {
-                    return false;
+                if (hay4Horizontales(j, i, jugador)) {
+                    return true;
                 }
             }
         }
-        return true;
+        return false;
     }
 
     private boolean hay4Horizontales(int columna, int fila, char jugador){
         for (int i = 0; i < 4; i++) {
-            if (m[fila + i][columna] != jugador) {
+            if (m[columna + i][fila] != jugador) {
                 return false;
             }
         }
