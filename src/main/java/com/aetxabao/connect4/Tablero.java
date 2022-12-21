@@ -111,9 +111,9 @@ public class Tablero {
     }
 
     public void inserta(char ficha, int columna) {
-        for (int i = 0; i < m[columna - 1].length; i++) {
-            if (m[columna - 1][i] == L) {
-                m[columna - 1][i] = ficha;
+        for (int i = 0; i < m[columna].length; i++) {
+            if (m[columna][i] == L) {
+                m[columna][i] = ficha;
                 contador++;
                 break;
             }
