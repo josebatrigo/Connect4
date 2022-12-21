@@ -195,13 +195,22 @@ public class Tablero {
     }
 
     private boolean ganaDiagonalAbajo(char jugador) {
-        //TODO: ganaDiagonalAbajo
-        boolean b = false;
-        return b;
+        for (int i = 0; i < 4; i++) {
+            for (int j = m[i].length - 1; j > 2; j--) {
+                if (hay4DiagonalesAbajo(i, j, jugador)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     private boolean hay4DiagonalesAbajo(int columna, int fila, char jugador){
-        //TODO: hay4DiagonalesAbajo
+        for (int i = 0; i < 4; i++) {
+            if (m[columna++][fila--] != jugador) {
+                return false;
+            }
+        }
         return true;
     }
 
