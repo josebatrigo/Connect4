@@ -97,7 +97,7 @@ public class Tablero {
     }
 
     public boolean estaColumnaLibre(int columna) {
-        if (columna < 1 || columna > 7) {
+        if (columna < 0 || columna > 7) {
             return false;
         }
         for (int i = 0; i < m.length; i++) {
@@ -215,7 +215,10 @@ public class Tablero {
     }
 
     public boolean estaFinalizado() {
-        //TODO: finalizado
+        if (ganaHorizontal(X) || ganaVertical(X) || ganaDiagonalArriba(X) || ganaDiagonalAbajo(X) || ganaHorizontal(O)
+                || ganaVertical(O) || ganaDiagonalArriba(O) || ganaDiagonalAbajo(O) || estaLleno()) {
+            return true;
+        }
         return false;
     }
 
