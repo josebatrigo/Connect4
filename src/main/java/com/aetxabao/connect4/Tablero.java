@@ -154,7 +154,11 @@ public class Tablero {
     }
 
     private boolean ganaVertical(char jugador) {
-        for (int i = 0; i < m.length - 1; i++) {
+        for (int i = 0; i < m.length; i++) {
+            /*
+             *antes tenia puesto m.length - 1 y no entiendo porque no me pasaba el test 4
+             * si se supone que asi recorreria todos los arrays.
+             */
             for (int j = 0; j < 3; j++) {
                 if (hay4Verticales(i, j, jugador)) {
                     return true;
